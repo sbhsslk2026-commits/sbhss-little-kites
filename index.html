@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>S.B.H.S.S LITTLE KITES</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f6f8;
+}
+
+/* ================= HEADER ================= */
+.school-header{
+    background:#ffffff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:20px 30px;
+    border-bottom:4px solid #003366;
+}
+
+.logo-box img{
+    width:90px;
+    height:auto;
+}
+
+.title-box{
+    text-align:center;
+    flex:1;
+}
+
+.school-name{
+    font-family:'Cinzel', serif;
+    font-size:34px;
+    font-weight:700;
+    color:#000;
+    margin:0;
+    letter-spacing:2px;
+}
+
+.school-sub{
+    font-size:14px;
+    color:#333;
+    margin:6px 0;
+    letter-spacing:1px;
+}
+
+/* ================= BANNER ================= */
+.home-banner{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+}
+
+/* ================= NAV ================= */
+nav{
+    background:#0055a5;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+nav button{
+    background:none;
+    border:none;
+    color:white;
+    padding:15px 20px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+nav button:hover{
+    background:#003366;
+}
+
+/* ================= CONTENT ================= */
+.content{
+    padding:30px;
+    display:none;
+}
+
+.content.active{
+    display:block;
+}
+
+/* ================= SLIDER ================= */
+.home-slider{
+    max-width:900px;
+    height:350px;
+    margin:20px auto;
+    position:relative;
+    overflow:hidden;
+    border-radius:10px;
+}
+
+.home-slide{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    position:absolute;
+    opacity:0;
+    transition:opacity 1s ease-in-out;
+}
+
+.home-slide.active{
+    opacity:1;
+}
+
+.slider-dots{
+    text-align:center;
+    margin-top:10px;
+}
+
+.slider-dots span{
+    height:12px;
+    width:12px;
+    margin:0 5px;
+    background:#bbb;
+    border-radius:50%;
+    display:inline-block;
+    cursor:pointer;
+}
+
+.slider-dots span.active{
+    background:#003366;
+}
+
+/* ================= GALLERY ================= */
+.gallery img{
+    width:200px;
+    height:140px;
+    margin:10px;
+    border:2px solid #ccc;
+    border-radius:5px;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:12px;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+    .school-header{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .logo-box img{
+        width:70px;
+    }
+
+    .school-name{
+        font-size:22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="school-header">
+    <div class="logo-box">
+        <img src="slogobr.png" alt="School Logo">
+    </div>
+
+    <div class="title-box">
+        <h1 class="school-name">ST. BEHANAN’S HIGHER SECONDARY SCHOOL</h1>
+        <p class="school-sub">LITTLE KITES IT CLUB | ESTD 2017–18 | KITE</p>
+        <marquee><b>Learning Technology for the Future</b></marquee>
+    </div>
+
+    <div class="logo-box">
+        <img src="logo.png" alt="Little Kites Logo">
+    </div>
+</header>
+
+<img src="sbhssW.png" class="home-banner">
+
+<nav>
+<button onclick="showSection('home')">Home</button>
+<button onclick="showSection('about')">About</button>
+<button onclick="showSection('program')">Computer Fundamentals Program</button>
+<button onclick="showSection('gallery')">Gallery</button>
+<button onclick="showSection('contact')">Contact</button>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="content active">
+<h2>Welcome to S.B.H.S.S Little Kites</h2>
+
+<div class="home-slider">
+    <img src="1.jpg" class="home-slide active">
+    <img src="2.jpg" class="home-slide">
+    <img src="3.jpg" class="home-slide">
+    <img src="4.jpg" class="home-slide">
+    <img src="5.png" class="home-slide">
+</div>
+
+<div class="slider-dots">
+    <span class="active" onclick="showSlide(0)"></span>
+    <span onclick="showSlide(1)"></span>
+    <span onclick="showSlide(2)"></span>
+    <span onclick="showSlide(3)"></span>
+    <span onclick="showSlide(4)"></span>
+</div>
+
+<p>
+Our IT Lab helps students learn computer fundamentals and modern technology
+in a creative and practical environment.
+</p>
+</div>
+
+<!-- About Section -->
+<div id="about" class="content">
+    <h2>About the IT Lab</h2>
+    <p>
+       Little KITES IT Clubs is a unique initiative of Kerala Infrastructure and Technology for Education (KITE), aimed at making students inquisitive and equipped by creating an environment to acquire and internalize knowledge. It is the largest ICT network of Students in India, with over 3.80 lakh students benefited so far (Presently 1.75 lakh members in 2060 schools). The program focuses on igniting the innate skills of students in creatively using the technology that actually contributes to the development of new software, platforms and tools. </p>
+        <h3>Little Kites: Achievements and Contributions from St. Behanan's Higher Secondary School</h3>
+   <p>Little Kites commenced operations in the 2017-18 academic year, engaging 40 students.
+In 2024, the digital magazine "Aksharamuttam" was successfully published.
+A district-level residential camp for Little Kites was conducted on December 27th and 28th, 2024, at Adoor Government Boys High School in Pathanamthitta district. Two students from St. Mary's Higher Secondary School participated as representatives.
+A school-level Robotics Fest took place on May 29th, 2025. Subsequently, four students who emerged victorious at the school-level event advanced to participate in the district-level Robotics Festival.
+
+Little Kites commenced operations in the 2017-18 academic year, engaging 40 students.
+In 2024, the digital magazine "Aksharamuttam" was successfully published.
+A district-level residential camp for Little Kites was conducted on December 27th and 28th, 2024, at Adoor Government Boys High School in Pathanamthitta district. Two students from St. Mary's Higher Secondary School participated as representatives.
+A school-level Robotics Fest took place on May 29th, 2025. Subsequently, four students who emerged victorious at the school-level event advanced to participate in the district-level Robotics Festival.</p>     
+</div>
+
+
+<!-- Program Section -->
+<div id="program" class="content">
+    <h2>Computer Fundamentals Program</h2>
+    <ul>
+    <li>
+        <a href="https://www.geeksforgeeks.org/computer-science-fundamentals/computer-fundamentals-tutorial/">Introduction to Computers</a>
+    </li>
+    <li>
+        <a href="https://www.geeksforgeeks.org/computer-organization-architecture/difference-between-hardware-and-software/">Hardware and Software Basics</a>
+    </li>
+    <li>
+        <a href="https://www.geeksforgeeks.org/linux-unix/what-is-ubuntu/">Operating Systems</a>
+    </li>
+    <li>
+        <a href="https://spoken-tutorial.org/tutorial-search/?search_foss=LibreOffice+Suite+Writer+6.3&search_language=English">
+            Libre Office Writer, Libre Office Calc, and Libre Office Impress
+        </a>
+    </li>
+    <li>
+        <a href="https://www.slideshare.net/slideshow/chapter-1-internet-and-emailppt/258097968">Internet and Email Basics</a>
+    </li>
+    <li>
+        <a href="https://www.slideshare.net/slideshow/computer-safety-68345477/68345477">Basic Computer Safety</a>
+    </li>
+    <li>
+        <a href="https://www.youtube.com/playlist?list=PLR2UNjW_Pkm-ggxbk9McXjZmfG5vS1IZh">Robotics</a>
+    </li>
+</ul>
+</div>
+<!-- Gallery Section -->
+<div id="gallery" class="content gallery">
+    <h2>IT Lab Gallery</h2>
+    <img src="sbhssW.png" alt="School Banner">
+    <img src="inside.JPG" alt="IT Lab">
+    <img src="sslk.jpg" alt="Students Working">
+    <img src="ac.jpeg" alt="District Camp (2025)">
+    <img src="rac.jpeg" alt="District Camp (2025)">
+    <img src="rf.jpeg" alt="Robotic Fest">
+    <img src="rf2.jpeg" alt="Robotic Fest">
+    <img src="sc.jpeg" alt="Sampoorna plus">
+    <img src="6.jpg" alt="School Banner">
+    <img src="7.jpg" alt="IT Lab">
+    <img src="8.jpg" alt="Students Working">
+    <img src="9.jpeg" alt="District Camp (2025)">
+    <img src="10.jpeg" alt="District Camp (2025)">
+    <img src="11.jpeg" alt="Robotic Fest">
+    <img src="12.jpeg" alt="Robotic Fest">
+    <img src="13.jpeg" alt="Sampoorna plus">
+   <img src="14.jpeg" alt="Robotic Fest">
+    <img src="15.jpg" alt="Robotic Fest">
+    <img src="16.jpg" alt="Sampoorna plus">
+    <img src="17.jpeg" alt="Sampoorna plus">
+   <img src="18.jpeg" alt="Robotic Fest">
+    <img src="19.jpeg" alt="Robotic Fest">
+    <img src="20.jpeg" alt="Sampoorna plus">
+    <img src="21.jpg" alt="Sampoorna plus">
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="content">
+<h2>Contact Us</h2>
+<p><b>School:</b> St. Behanan's HSS</p>
+<p><b>Email:</b> sbhsvennikulam2022@gmail.com</p>
+<p><b>Phone:</b> +91 9495264569</p>
+<iframe 
+  src="https://www.google.com/maps?q=St.%20Behanans%20Higher%20Secondary%20School%20Vennikulam&output=embed"
+  width="100%" 
+  height="350" 
+  style="border:0; border-radius:10px;" 
+  allowfullscreen="" 
+  loading="lazy">
+</iframe>
+</div>
+
+<footer>
+<p>© 2026 S.B.H.S.S Little Kites IT Lab</p>
+</footer>
+
+<script>
+function showSection(id){
+    document.querySelectorAll('.content')
+    .forEach(c => c.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+/* SLIDER */
+let index = 0;
+const slides = document.querySelectorAll('.home-slide');
+const dots = document.querySelectorAll('.slider-dots span');
+
+function showSlide(i){
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[i].classList.add('active');
+    dots[i].classList.add('active');
+    index = i;
+}
+
+/* Auto Slide */
+setInterval(()=>{
+    index = (index + 1) % slides.length;
+    showSlide(index);
+},3000);
+</script>
+
+</body>
+</html>
+
