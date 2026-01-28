@@ -267,34 +267,194 @@ A school-level Robotics Fest took place on May 29th, 2025. Subsequently, four st
     </li>
 </ul>
 </div>
-<!-- Gallery Section -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>S.B.H.S.S LITTLE KITES</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f6f8;
+}
+
+/* NAV */
+nav{
+    background:#0055a5;
+    text-align:center;
+}
+nav button{
+    background:none;
+    border:none;
+    color:white;
+    padding:15px 20px;
+    font-size:16px;
+    cursor:pointer;
+}
+nav button:hover{
+    background:#003366;
+}
+
+/* CONTENT */
+.content{
+    padding:30px;
+    display:none;
+}
+.content.active{
+    display:block;
+}
+
+/* GALLERY */
+.gallery img{
+    width:200px;
+    height:140px;
+    margin:10px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:0.3s;
+}
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* LIGHTBOX */
+.lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:85%;
+}
+
+.close{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:35px;
+    color:white;
+    cursor:pointer;
+}
+
+.prev, .next{
+    position:absolute;
+    top:50%;
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+    padding:10px;
+}
+.prev{ left:20px; }
+.next{ right:20px; }
+
+/* MOBILE */
+@media(max-width:768px){
+    .gallery img{
+        width:45%;
+        height:auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= GALLERY (UNCHANGED IMAGES) ================= -->
 <div id="gallery" class="content gallery">
-    <h2>IT Lab Gallery</h2>
-    <img src="sbhssW.png" alt="School Banner">
-    <img src="inside.JPG" alt="IT Lab">
-    <img src="sslk.jpg" alt="Students Working">
-    <img src="ac.jpeg" alt="District Camp (2025)">
-    <img src="rac.jpeg" alt="District Camp (2025)">
-    <img src="rf.jpeg" alt="Robotic Fest">
-    <img src="rf2.jpeg" alt="Robotic Fest">
-    <img src="sc.jpeg" alt="Sampoorna plus">
-    <img src="6.jpg" alt="School Banner">
-    <img src="7.jpg" alt="IT Lab">
-    <img src="8.jpg" alt="Students Working">
-    <img src="9.jpeg" alt="District Camp (2025)">
-    <img src="10.jpeg" alt="District Camp (2025)">
-    <img src="11.jpeg" alt="Robotic Fest">
-    <img src="12.jpeg" alt="Robotic Fest">
-    <img src="13.jpeg" alt="Sampoorna plus">
-   <img src="14.jpeg" alt="Robotic Fest">
-    <img src="15.jpg" alt="Robotic Fest">
-    <img src="16.jpg" alt="Sampoorna plus">
-    <img src="17.jpeg" alt="Sampoorna plus">
-   <img src="18.jpeg" alt="Robotic Fest">
-    <img src="19.jpeg" alt="Robotic Fest">
-    <img src="20.jpeg" alt="Sampoorna plus">
-    <img src="21.jpg" alt="Sampoorna plus">
+<h2>IT Lab Gallery</h2>
+
+<img src="sbhssW.png">
+<img src="inside.JPG">
+<img src="sslk.jpg">
+<img src="ac.jpeg">
+<img src="rac.jpeg">
+<img src="rf.jpeg">
+<img src="rf2.jpeg">
+<img src="sc.jpeg">
+<img src="6.jpg">
+<img src="7.jpg">
+<img src="8.jpg">
+<img src="9.jpeg">
+<img src="10.jpeg">
+<img src="11.jpeg">
+<img src="12.jpeg">
+<img src="13.jpeg">
+<img src="14.jpeg">
+<img src="15.jpg">
+<img src="16.jpg">
+<img src="17.jpeg">
+<img src="18.jpeg">
+<img src="19.jpeg">
+<img src="20.jpeg">
+<img src="21.jpg">
 </div>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox">
+<span class="close" onclick="closeLightbox()">×</span>
+<span class="prev" onclick="changeSlide(-1)">❮</span>
+<img id="lightbox-img">
+<span class="next" onclick="changeSlide(1)">❯</span>
+</div>
+
+<script>
+/* SECTION */
+function showSection(id){
+    document.querySelectorAll('.content').forEach(c=>c.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+/* GALLERY LIGHTBOX */
+const images = document.querySelectorAll('.gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+let currentIndex = 0;
+
+/* CLICK IMAGE */
+images.forEach((img, index)=>{
+    img.addEventListener('click', ()=>{
+        openLightbox(index);
+    });
+});
+
+function openLightbox(index){
+    currentIndex = index;
+    lightbox.style.display = 'flex';
+    lightboxImg.src = images[index].src;
+}
+
+function closeLightbox(){
+    lightbox.style.display = 'none';
+}
+
+function changeSlide(step){
+    currentIndex += step;
+    if(currentIndex < 0) currentIndex = images.length - 1;
+    if(currentIndex >= images.length) currentIndex = 0;
+    lightboxImg.src = images[currentIndex].src;
+}
+
+/* MOBILE SWIPE SUPPORT */
+let startX = 0;
+
+lightbox.addEventListener('touchstart', e=>{
+    startX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener('touchend', e=>{
+    let endX = e.changedTouches[0].clientX;
+    if(startX - endX > 50) changeSlide(1);
+    if(endX - startX > 50) changeSlide(-1);
+});
+</script>
 
 <!-- CONTACT -->
 <div id="contact" class="content">
